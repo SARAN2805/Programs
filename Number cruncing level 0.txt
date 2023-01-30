@@ -1,0 +1,245 @@
+1.SQUARE ROOT USING INBULIT FUNCTION:
+--------------------------------------
+int main()
+{
+    int num;
+    scanf(""%d"", &num);
+    double res;
+    res = sqrt(num);
+    printf(""%.2lf "", res);
+
+
+    return EXIT_SUCCESS;
+}
+
+2. POWER USING BASE AND EXPONENT :
+----------------------------------
+
+int main()
+{
+    int num;
+    scanf(""%d"", &num);
+    double res;
+    res = sqrt(num);
+    printf(""%.2lf "", res);
+
+
+    return EXIT_SUCCESS;
+}
+
+3. NUMBER IS ABUNDANT OR PERFECT OR DEFICIENT NUMBER
+----------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+int find_sum_of_factors( long int);
+int main()
+{
+    long int num, sum;
+    scanf(""%ld"", &num);
+    sum = find_sum_of_factors(num);
+    if ( sum == num )
+        printf(""Perfect number"");
+    else if ( sum > num)
+        printf(""Abundant number"");
+    else
+        printf( ""Deficient number"");
+    return EXIT_SUCCESS;
+}
+int find_sum_of_factors( long int num)
+{
+    long int sum;
+    long int ftr;
+    sum = 1;
+    for ( ftr = 2; ftr <= num/2; ftr+=1)
+    {
+        if ( num % ftr ==0)
+            sum += ftr;
+    }
+    return sum;
+}
+
+
+4. COUNT THE PRIME WITH THE RANGE GIVEN:
+----------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+int isPrime( long int);
+int main()
+{
+    long int itr, start, end;
+    scanf("%ld %ld", &start, &end);
+
+    for ( itr = start ; itr <= end ; itr+=1)
+    {
+        if (isPrime(itr))
+            printf("%ld ", itr);
+
+    }
+    return 0;
+}
+int isPrime( long int num)
+{
+    long int ftr;
+    if(num==1)
+    {
+      return 0;
+    }
+    for ( ftr = 2; ftr <= num/2; ftr+=1)
+    {
+        if ( num % ftr ==0)
+            return 0;
+    }
+    return 1;
+}
+
+5. GIVEN NUMBER IS ADAM NUMBER OR NOT:
+-----------------------------------------
+#include<stdio.h>
+#include<stdlib.h>
+long int Reverse( long int);
+long long int Square_number ( long int );
+int main()
+{
+  long int a;
+  scanf("%ld",&a);
+  long int s= Square_number(a);
+  long int r=Reverse(a);
+  long int sr=Square_number(r);
+  long int rsr=Reverse(sr);
+  if(rsr==s){
+    printf("Adam Number");
+  }
+  else{
+    printf("Not Adam");
+  }
+}
+long int Reverse(long int num)
+{
+    long int rev_num;
+    int digit;
+    rev_num =0;
+    while ( num)
+    {
+        digit = num % 10;
+        num /=10;
+        rev_num = rev_num * 10 + digit;
+    }
+    return rev_num;
+
+}
+long long int Square_number ( long int num)
+{
+    return num * num;
+}
+
+
+6.COUNT THE NUMBER OF DIGIT IN THE GIVEN INPUT:
+------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+int Numberofdigit( long long int);
+int main()
+{
+    long long int num;
+    scanf("%lld", &num);
+    printf("%d", Numberofdigit(num));
+
+    return EXIT_SUCCESS;
+}
+int Numberofdigit( long long int num)
+{
+  int count = 0;
+  while(num){
+      count=count+1;
+      num=num/10;
+  }  
+  return count;
+}
+
+
+7. RETURN MAXIMUM
+------------------
+
+#include<stdlib.h>
+#include<limits.h>
+int Diffmaxmin_digit( long long int);
+int main()
+{
+    long long int num;
+    scanf("%lld", &num);
+    printf("%d", Diffmaxmin_digit(num));
+
+    return EXIT_SUCCESS;
+}
+int Diffmaxmin_digit( long long int num)
+{
+  int input = num;
+  int min =INT_MAX,max = INT_MIN,digit;
+  while(input){
+    digit=input%10;
+    if(digit>max) max=digit;
+    if(digit<min) min = digit;
+    input/=10;
+  }
+  int res=max-min;
+  return res;
+}
+
+
+8. COUNT THE NUMBER OF FACTORS FOR THE GIVEN NUMBER:
+------------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+int Numberoffactors( long long int);
+int main()
+{
+    long long int num;
+    scanf("%lld", &num);
+    printf("%d", Numberoffactors(num));
+
+    return EXIT_SUCCESS;
+}
+int Numberoffactors( long long int num)
+{
+  int count = 0;
+  for(int i=1;i<=num;i++){
+    if(num%i==0)      count = count+1;
+    else      continue;
+  }
+  return count;
+}
+
+
+10. MAXIMUM CHARACTERS FROM THE GIVEN TWO CHARACTER AS INPUT;
+--------------------------------------------------------------
+
+
+#include<stdio.h>
+int Max_char(char input1,char input2)
+{
+  int i,j;
+  i = input1;
+  j = input2;
+  i=i-100;
+  j=j-100;
+  if(i>j){
+    return input1;
+  }
+  else{
+    return input2;
+  }
+  
+}
+int main()
+{
+    char ch1,ch2,num;
+    scanf("%c %c",&ch1,&ch2);
+    num=Max_char(ch1,ch2);
+    printf("%c",num);
+    return 0;
+}
+
