@@ -1,0 +1,31 @@
+SEGREGATE ODD AND EVEN IN AN ARRAY :-
+-----------------------------------
+
+#include<stdio.h>
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void segOddEven(int arr[],int n){
+    int j=-1;
+    int i=0;
+    for(int i=0;i<n;i++){
+    if(arr[i]%2==0){
+        j++;
+        swap(&arr[i],&arr[j]);
+    }
+    }
+}
+int main(){
+    int arr[]={10,7,23,89,41,22,96};
+    int n=7;
+    segOddEven(arr,n);
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ",arr[i]);
+    }
+}
+
+-------------------------------------------------------
